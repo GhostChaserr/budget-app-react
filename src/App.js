@@ -1,13 +1,12 @@
 
 
 // Load screens
-import Expenses from './pages/expenses/Expenses'
-
+import Filters from './components/filters/Filters';
 
 function App() {
   return (
     <div>
-      <Expenses/>
+      <Filters/>
     </div>
   );
 }
