@@ -1,10 +1,25 @@
 
+import { StyledButton ,StyledContainer, StyledTitle, StyledBottomContainer, StyledButtonsContainer } from './Expense.styled'
 
-const Expense = () =>   {
+const Expense = (props) =>   {
   return (
-    <div>
-      Expense.
-    </div>
+    <StyledContainer category={props.category}>
+      <StyledTitle>
+        თარიღი: {props.date}
+      </StyledTitle>
+      <StyledTitle>
+        category: {props.category}
+      </StyledTitle>
+      <StyledBottomContainer>
+        <StyledTitle>
+          Income/expense
+        </StyledTitle>
+        <StyledButtonsContainer>
+          <StyledButton>X</StyledButton>
+          <StyledButton>Edit</StyledButton>
+        </StyledButtonsContainer>
+      </StyledBottomContainer>
+    </StyledContainer>
   )
 }
 
