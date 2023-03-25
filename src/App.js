@@ -2,7 +2,8 @@
 
 // Load screens
 import Filters from './components/filters/Filters';
-import Expense from './components/expense/Expense';
+import AddExpense from './components/addExpense/AddExpense'
+
 
 const Notification = (props) => {
   const { text } = props;
@@ -20,7 +21,13 @@ Notification.defaultProps = {
 function App() {
   return (
     <div>
-      <Expense category="expense"/>
+      <AddExpense/>
+      {/* <SignIn/> */}
+      {/* <Signup/> */}
+      {/* <Filters/> */}
+      {/* <Expense/> */}
+      {/* <Signup/> */}
+      {/* <Expense category="expense"/> */}
       {/* <Notification text="hello2"  /> */}
       {/* <Filters/> */}
     </div>

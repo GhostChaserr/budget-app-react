@@ -1,10 +1,11 @@
 import './label-input.styles.css';
+import { StyledInput } from './LabelInput.styled'
 
 const LabelInput = (props) => {
   return (
     <div className="label__input__container">
       <label htmlFor={props.id}>{props.text}</label>
-      <input
+      <StyledInput
         type={props.type}
         id={props.id}
         name={props.name}
