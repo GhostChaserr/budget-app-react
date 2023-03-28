@@ -7,8 +7,11 @@ import {
   Button,
 } from "antd";
 import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 const AddExpense = () => {
+  const params = useParams();
+
   const [, setSelectedDate] = useState();
   const [isExpense, setIsExpense] = useState();
   const [amount, setAmount] = useState();
@@ -16,6 +19,7 @@ const AddExpense = () => {
   return (
     <Space direction="vertical">
       <Space direction="vertical">
+        {params.id && <p>Editing Expense: {params.id}</p>}
         <Typography>Select date:</Typography>
         <DatePicker
           onChange={(date, dateString) => setSelectedDate(dateString)}
@@ -41,6 +45,7 @@ const AddExpense = () => {
       <Space>
         <Button size="large">Add Expense</Button>
       </Space>
+      <Link to={"/"}>Back to Home</Link>
     </Space>
   );
 };

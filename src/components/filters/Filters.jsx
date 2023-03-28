@@ -2,6 +2,7 @@ import "./filters.css";
 
 import { StyledDatePicker } from "./Filters.styled";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { InputNumber, Select, Button } from "antd";
 
 const Filters = () => {
@@ -68,6 +69,9 @@ const Filters = () => {
         <Button size="large" onClick={onFiltersSubmit}>
           Filter
         </Button>
+        <Link to={"/add-expense"}>Add Expense</Link>
+        <Link to={"/signin"}>SignIn</Link>
+        <Link to={"/signup"}>Signup</Link>
       </div>
     </div>
   );
