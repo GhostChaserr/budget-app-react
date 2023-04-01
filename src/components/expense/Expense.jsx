@@ -7,10 +7,11 @@ import {
 } from "./Expense.styled";
 
 const Expense = (props) => {
+  console.log(props);
   return (
-    <StyledContainer category={props.category}>
-      <StyledTitle>თარიღი: {props.date}</StyledTitle>
-      <StyledTitle>category: {props.category}</StyledTitle>
+    <StyledContainer category={props.expense.category}>
+      <StyledTitle>თარიღი: {props.expense.date}</StyledTitle>
+      <StyledTitle>category: {props.expense.category}</StyledTitle>
       <StyledBottomContainer>
         <StyledTitle>Income/expense</StyledTitle>
         <StyledButtonsContainer>

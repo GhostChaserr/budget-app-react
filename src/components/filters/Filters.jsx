@@ -4,8 +4,12 @@ import { StyledDatePicker } from "./Filters.styled";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { InputNumber, Select, Button } from "antd";
+import { useContext } from "react";
+import { ExpensesFeedContext } from "../expenses-feed/ExpensesFeedContext";
 
 const Filters = () => {
+  const { filters, setFilters } = useContext(ExpensesFeedContext);
+  console.log("Filters", filters);
   const [selectedDate, setSelectedDate] = useState("");
   const [minAmount, setMinAmount] = useState(undefined);
   const [maxAmount, setMaxAmount] = useState(undefined);
@@ -16,17 +20,7 @@ const Filters = () => {
   const onCategoryChange = (e) => setSelectedCategory(e.target.value);
 
   const onFiltersSubmit = () => {
-    const minAmountInt = parseFloat(minAmount);
-    const maxAmountInt = parseFloat(maxAmount);
-
-    console.log({ minAmountInt, maxAmountInt, selectedCategory, selectedDate });
-
-    // console.log({
-    //   selectedDate,
-    //   parseFloat(minAmount),
-    //   maxAmount,
-    //   selectedCategory
-    // })
+    setFilters({ ...filters, selectedCategory });
   };
 
   console.log(selectedDate);
@@ -51,8 +45,9 @@ const Filters = () => {
         <Select
           defaultValue="lucy"
           style={{ width: 120 }}
-          onChange={onCategoryChange}
+          onChange={(e) => setSelectedCategory(e)}
           options={options}
+          value={selectedCategory}
         />
         {/* <Select
           value={selectedCategory}

@@ -3,6 +3,8 @@ import Filters from "./components/filters/Filters";
 import AddExpense from "./components/addExpense/AddExpense";
 import SignIn from "../src/components/sign-in/Signin";
 import SignUp from "../src/components/sign-up/Signup";
+import Layout from "../src/components/Layout/Layout";
+import ExpensesFeed from "./components/expenses-feed/ExpensesFeed";
 
 import {
   createBrowserRouter,
@@ -23,11 +25,46 @@ Notification.defaultProps = {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/" element={<Filters />} />
-      <Route path="/add-expense" element={<AddExpense />} />
-      <Route path="/edit-expense/:id" element={<AddExpense />} />
+      <Route
+        path="/signin"
+        element={
+          <Layout>
+            <SignIn />
+          </Layout>
+        }
+      />
+      <Route
+        path="/signup"
+        element={
+          <Layout>
+            <SignUp />
+          </Layout>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <Layout>
+            <ExpensesFeed />
+          </Layout>
+        }
+      />
+      <Route
+        path="/add-expense"
+        element={
+          <Layout>
+            <AddExpense />
+          </Layout>
+        }
+      />
+      <Route
+        path="/edit-expense/:id"
+        element={
+          <Layout>
+            <AddExpense />
+          </Layout>
+        }
+      />
     </>
   )
 );
