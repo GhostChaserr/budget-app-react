@@ -6,8 +6,10 @@ import {
 } from "./Signup.styled";
 import LabelInput from "../label-input/LabelInput";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -43,7 +45,27 @@ const Signup = () => {
           value={repeatPassword}
           onChange={onRepeatPasswordChange}
         />
-        <StyledButton>Submit</StyledButton>
+        <StyledButton
+          onClick={() => {
+            // 1. add user to suers
+            const user = {
+              id: 1,
+              email,
+              password: password,
+              role: "user",
+            };
+
+            // Save user
+            localStorage.setItem("users", JSON.stringify([user]));
+
+            // Save Auth TOken
+            localStorage.setItem("token", user.id);
+
+            navigate("/");
+          }}
+        >
+          Submit
+        </StyledButton>
       </StyledContainer>
     </StyledSignupScreenWrapper>
   );

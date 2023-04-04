@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const AddExpense = () => {
+  const user = { role: "admin" };
   const params = useParams();
 
   const [, setSelectedDate] = useState();

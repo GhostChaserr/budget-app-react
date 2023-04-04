@@ -4,6 +4,8 @@ import AddExpense from "./components/addExpense/AddExpense";
 import SignIn from "../src/components/sign-in/Signin";
 import SignUp from "../src/components/sign-up/Signup";
 import Layout from "../src/components/Layout/Layout";
+import Managment from "./components/Managment/Managment";
+import ProtectedRoute from "../src/components/ProtectedRoute/ProtectedRoute";
 import ExpensesFeed from "./components/expenses-feed/ExpensesFeed";
 
 import {
@@ -52,17 +54,29 @@ const router = createBrowserRouter(
       <Route
         path="/add-expense"
         element={
-          <Layout>
-            <AddExpense />
-          </Layout>
+          <ProtectedRoute>
+            <Layout>
+              <AddExpense />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/managment"
+        element={
+          <ProtectedRoute>
+            <Managment />
+          </ProtectedRoute>
         }
       />
       <Route
         path="/edit-expense/:id"
         element={
-          <Layout>
-            <AddExpense />
-          </Layout>
+          <ProtectedRoute>
+            <Layout>
+              <AddExpense />
+            </Layout>
+          </ProtectedRoute>
         }
       />
     </>

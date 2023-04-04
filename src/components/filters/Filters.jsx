@@ -20,7 +20,7 @@ const Filters = () => {
   const onCategoryChange = (e) => setSelectedCategory(e.target.value);
 
   const onFiltersSubmit = () => {
-    setFilters({ ...filters, selectedCategory });
+    setFilters({ ...filters, selectedCategory, minAmount, maxAmount });
   };
 
   console.log(selectedDate);
