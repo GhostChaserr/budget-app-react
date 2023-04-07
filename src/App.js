@@ -1,5 +1,5 @@
 // Load screens
-import Filters from "./components/filters/Filters";
+import { useState } from "react";
 import AddExpense from "./components/addExpense/AddExpense";
 import SignIn from "../src/components/sign-in/Signin";
 import SignUp from "../src/components/sign-up/Signup";
@@ -14,6 +14,9 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { LanguageContext } from "./LanguageContext";
+import Header from "./components/Header/Header";
+import { ThemeContext } from "./ThemeContext";
 
 const Notification = (props) => {
   const { text } = props;
@@ -84,7 +87,17 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  const [language, updateLang] = useState("eng");
+  const [theme, setTheme] = useState("light");
+
+  return (
+    <LanguageContext.Provider value={{ language, updateLang }}>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <Header />
+        <RouterProvider router={router} />;
+      </ThemeContext.Provider>
+    </LanguageContext.Provider>
+  );
 }
 
 export default App;

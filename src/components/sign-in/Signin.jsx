@@ -5,20 +5,25 @@ import {
   StyledSignInScreenWrapper,
 } from "./Signin.styled";
 import LabelInput from "../label-input/LabelInput";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LanguageContext } from "../../LanguageContext";
+import TEXTS from "../../langs";
 
 const SignIn = () => {
+  const { language } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onEmailChange = (e) => setEmail(e.target.value);
   const onPasswordChange = (e) => setPassword(e.target.value);
 
+  console.log("Lang", language);
+
   return (
     <StyledSignInScreenWrapper>
       <StyledContainer>
-        <StyledTitle> Sign In </StyledTitle>
+        <StyledTitle>{TEXTS[language].signInHeader}</StyledTitle>
         <LabelInput
           id={1}
           text="Enter your email"

@@ -45,8 +45,9 @@ const ExpensesFeed = () => {
   const [filters, setFilters] = useState({ selectedCategory: "" });
   return (
     <ExpensesFeedContext.Provider value={{ filters, setFilters }}>
-      <Filters />
-      <ExpensesList />
+      <Filters filter={filters} setFilters={setFilters} />
+      <ExpensesList filter={filters} />
+      <button>Change Language</button>
     </ExpensesFeedContext.Provider>
   );
 };

@@ -6,8 +6,15 @@ import {
   StyledButtonsContainer,
 } from "./Expense.styled";
 
+const readCurrentUser = () => {
+  const userId = localStorage.getItem("token");
+  const users = JSON.parse(localStorage.getItem("users"));
+  const user = users.find((user) => user.id === userId);
+  return user;
+};
+
 const Expense = (props) => {
-  console.log(props);
+  // const user = readCurrentUser();
   return (
     <StyledContainer category={props.expense.category}>
       <StyledTitle>თარიღი: {props.expense.date}</StyledTitle>
@@ -15,8 +22,13 @@ const Expense = (props) => {
       <StyledBottomContainer>
         <StyledTitle>Income/expense</StyledTitle>
         <StyledButtonsContainer>
-          <StyledButton>X</StyledButton>
-          <StyledButton>Edit</StyledButton>
+          {"admin" &
+          (
+            <>
+              <StyledButton>X</StyledButton>
+              <StyledButton>Edit</StyledButton>
+            </>
+          )}
         </StyledButtonsContainer>
       </StyledBottomContainer>
     </StyledContainer>

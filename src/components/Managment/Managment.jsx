@@ -32,6 +32,7 @@ const Managment = () => {
                   });
 
                   // 1. შეინახო უკან საცავში
+                  localStorage.setItem("users", JSON.stringify(updated));
                 }}
               >
                 Make Admin
