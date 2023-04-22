@@ -11,6 +11,8 @@ import { LanguageContext } from "../../LanguageContext";
 import TEXTS from "../../langs";
 import useSignIn from "./useSignIn";
 
+console.log("ruNNING.");
+
 const SignIn = () => {
   // ბიზნეს ლოგიკა
   const {
