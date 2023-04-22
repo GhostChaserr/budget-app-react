@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Expense from "../expense/Expense";
+import Expense from "../expense";
 import Filters from "../filters/Filters";
 import { ExpensesFeedContext } from "./ExpensesFeedContext";
 import { useContext } from "react";

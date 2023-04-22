@@ -9,17 +9,20 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LanguageContext } from "../../LanguageContext";
 import TEXTS from "../../langs";
+import useSignIn from "./useSignIn";
 
 const SignIn = () => {
-  const { language } = useContext(LanguageContext);
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const onEmailChange = (e) => setEmail(e.target.value);
-  const onPasswordChange = (e) => setPassword(e.target.value);
+  // ბიზნეს ლოგიკა
+  const {
+    language,
+    email,
+    onEmailChange,
+    onPasswordChange,
+    password,
+    navigate,
+  } = useSignIn();
 
-  console.log("Lang", language);
-
+  // ინტერფესიი
   return (
     <StyledSignInScreenWrapper>
       <StyledContainer>
